@@ -1,0 +1,103 @@
+public class Song
+{
+    private final String title;
+    private final String artist;
+    private final String genre;
+    private final String filePath;
+ 
+   // ----------------------------------------------------------
+/**
+ * Create a new Song object.
+ * @param title
+ * @param artist
+ * @param genre
+ * @param filePath
+ */
+//Constructor for song with all parameters like title, artist, genre, and the filepath. 
+    public Song(String title, String artist, String genre, String filePath)
+    {
+        if (title == null || artist == null || genre == null
+            || filePath == null)
+        {
+            throw new IllegalArgumentException(
+                "Song fields cannot be null");
+        }
+        this.title = title;
+        this.artist = artist;
+        this.genre = genre;
+        this.filePath = filePath;
+    }
+ 
+    /**
+     * gets the title 
+     * @return title name 
+     */
+   
+    public String getTitle()
+    {
+        return title;
+    }
+ 
+    /**
+     * Gets the artist.
+     * @return  artist name
+     */
+    public String getArtist()
+    {
+        return artist;
+    }
+ 
+    /**
+     * Gets the genre.
+     * @return the genre
+     */
+    public String getGenre()
+    {
+        return genre;
+    }
+ 
+    /**
+     * Gets the path to the audio file.
+     * @return file path
+     */
+    public String getFilePath()
+    {
+        return filePath;
+    }
+ 
+    /**
+     * Two songs are equal if they have the same title, artist, genre, and
+     * file path. 
+     * @param other the object to compare with
+     * @return true if other is an equal Song
+     */
+    @Override
+    public boolean equals(Object other)
+    {
+        if (this == other)
+        {
+            return true;
+        }
+        if (other == null || getClass() != other.getClass())
+        {
+            return false;
+        }
+        Song song = (Song) other;
+        return title.equals(song.title)
+            && artist.equals(song.artist)
+            && genre.equals(song.genre)
+            && filePath.equals(song.filePath);
+    }
+ 
+ 
+    /**
+     * Returns a readable form of the song, e.g. "Title - Artist".
+     *
+     * @return a string representation of this song
+     */
+    @Override
+    public String toString()
+    {
+        return title + " - " + artist;
+    }
+}
